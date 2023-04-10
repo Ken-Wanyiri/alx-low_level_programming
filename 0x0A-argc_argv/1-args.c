@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * main - Entry point
+ * main - print the number of arguments passed to the program
  * @argc: number of arguments
  * @argv: array of arguments
  *
@@ -10,9 +10,9 @@
  */
 int main(int argc, char *argv[])
 {
-	(void)argv; /* ignore argv */
+	(void)argv; /* Ignore argv to remove unused parameter warning */
 
-	printf("Number of arguments: %d\n", argc - 1);
+	printf("%d\n", argc - 1); /* Print the number of arguments passed to the program */
 
 	return (0);
 }
