@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
 	(void)argv; /* Ignore argv to remove unused parameter warning */
 
-	printf("%d\n", argc - 1); /* Print the number of arguments passed to the program */
+	printf("%d\n", argc - 1);
 
 	return (0);
 }
