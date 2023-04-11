@@ -2,41 +2,44 @@
 #include <stdlib.h>
 
 /**
- * alloc_grid - allocate a two-dimensional array
- * @width: width of array
- * @height: height of array
- *
- * Return: pointer to the allocated 2D array, or NULL if it fails
+ * alloc_grid - returns a pointer to a 2 dimensional array of integers
+ * @width: width input
+ * @height: height input
+ * Return: pointer to 2 dim. array or NULL if failure
  */
 int **alloc_grid(int width, int height)
 {
-    int **arr;
-    int i, j;
+	int **grid;
+	int x, y;
 
-    if (width <= 0 || height <= 0)
-        return (NULL);
+	if (width <= 0 || height <= 0)
+		return (NULL);
 
-    arr = malloc(sizeof(int *) * height);
-    if (arr == NULL)
-        return (NULL);
+	grid = malloc(sizeof(int *) * height);
 
-    for (i = 0; i < height; i++)
-    {
-        arr[i] = malloc(sizeof(int) * width);
-        if (arr[i] == NULL)
-        {
-            for (; i >= 0; i--)
-                free(arr[i]);
-            free(arr);
-            return (NULL);
-        }
-    }
+	if (grid == NULL)
+		return (NULL);
 
-    for (i = 0; i < height; i++)
-    {
-        for (j = 0; j < width; j++)
-            arr[i][j] = 0;
-    }
+	for (x = 0; x < height; x++)
+	{
+		grid[x] = malloc(sizeof(int) * width);
 
-    return (arr);
+		if (grid[x] == NULL)
+		{
+			for (; x >= 0; x--)
+				free(grid[x]);
+			free(grid);
+			return (NULL);
+		}
+	}
+
+	for (x = 0; x < height; x++)
+	{
+		for (y = 0; y < width; y++)
+			grid[x][y] = 0;
+	}
+
+	return (grid);
 }
+
+
